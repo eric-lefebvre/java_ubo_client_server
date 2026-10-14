@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="573.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="Controller">
+  <children>
+    <MenuBar prefHeight="29.0" prefWidth="851.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" onAction="#OpenFile" text="Open…" />
+            <Menu mnemonicParsing="false"  text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="226.0" prefWidth="511.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextField fx:id="entreeAdresse"  layoutX="12.0" layoutY="49.0" prefHeight="26.0" prefWidth="173.0" />
+            <TextField fx:id="entreePort" layoutX="11.0" layoutY="109.0" prefHeight="26.0" prefWidth="173.0" />
+            <Label layoutX="25.0" layoutY="29.0" text="Adresse du serveur ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="91.0" text="Port ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="53.0" layoutY="150.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="89.0" onAction="#actionBoutonConnexion" text="Connexion">
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </Button>
+            <Button layoutX="47.0" layoutY="478.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: red;" onAction="#actionBoutonDeconnexion" text="Déconnexion" />
+            <Label layoutX="41.0" layoutY="215.0" text="Etat de la connexion : " />
+            <Label layoutX="72.0" layoutY="232.0" fx:id="labelEtatConnexion" text="Inconnue">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Line endX="-33.5" endY="499.5" layoutX="232.0" layoutY="46.0" startX="-33.5" startY="-46.0" />
+            <TextField fx:id="entreeScript"  layoutX="221.0" layoutY="29.0" prefHeight="78.0" prefWidth="608.0" />
+            <Button layoutX="314.0" layoutY="116.0" mnemonicParsing="false" onAction="#actionBoutonEnvoyer" text="Envoyer" />
+            <ImageView fitHeight="330.0" fitWidth="598.0" layoutX="226.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="224.0" layoutY="6.0" prefHeight="26.0" prefWidth="51.0" text="Script ">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Button layoutX="690.0" layoutY="116.0" mnemonicParsing="false" onAction="#actionBoutonEffacer" text="Effacer" />
+            <Button layoutX="751.0" layoutY="116.0" mnemonicParsing="false" onAction="#actionBoutonExecuter" text="Exécuter" />
+            <MenuButton fx:id="MenuButton" layoutX="227.0" layoutY="116.0" mnemonicParsing="false" text="mode ">
+              <items>
+                <MenuItem fx:id="option1" mnemonicParsing="false" text="pas à pas " />
+                <MenuItem fx:id="option2" mnemonicParsing="false" text="bloc" />
+              </items>
+            </MenuButton>
+         
+<!-- Texte "Résultat" avec une police de 18px -->
+        <Label prefHeight="34.0" prefWidth="69.0"  layoutX="226.0" layoutY="146.0" text="Résultat">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+<VBox style="-fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 10px;" prefWidth="598.0" prefHeight="362.0" layoutX="226.0" layoutY="175.0">
+    <children>
+        <!-- ImageView pour afficher l'image résultante -->
+         <VBox VBox.vgrow="ALWAYS" prefWidth="580.0" style="-fx-padding: 10px;">
+        <ImageView fx:id="imageView" fitHeight="280.0" fitWidth="580.0" />
+         </VBox>
+        <!-- VBox contenant la TextArea avec un padding -->
+        <VBox VBox.vgrow="ALWAYS" prefWidth="580.0" style="-fx-padding: 10px;">
+            <!-- TextArea pour afficher le résultat -->
+            <TextArea fx:id="renvoiCode" editable="false" prefWidth="580.0" prefHeight="20.0" />
+        </VBox>
+    </children>
+</VBox>
+
+
+
+        <!-- Fin de la zone encadrée pour le résultat -->
+  
+       
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
